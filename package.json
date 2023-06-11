@@ -1,24 +1,39 @@
 {
-  "name": "fixedsize-map",
-  "version": "1.0.1",
-  "author": "Sai Teja M",
+  "name": "size-limited-map",
+  "version": "2.0.0",
+  "author": "Ethan Resnick",
   "license": "ISC",
-  "description": "A simple in memory size cache to hold fixed number of key value pairs",
-  "main": "index.js",
+  "description": "A Map that discards its oldest elements to stay within a fixed size. Implements the same interface as JS's built-in Map class.",
+  "main": "build/index.js",
+  "type": "module",
+  "typings": "build/index.d.ts",
+  "files": [
+    "./build"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --loader ts-node/esm index.test.ts",
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saiteja-madha/fixedsize-map.git"
+    "url": "git+https://github.com/ethanresnick/fixedsize-map.git"
   },
   "bugs": {
-    "url": "https://github.com/saiteja-madha/fixedsize-map/issues"
+    "url": "https://github.com/ethanresnick/fixedsize-map/issues"
   },
   "homepage": "https://github.com/saiteja-madha/fixedsize-map#readme",
   "keywords": [
     "cache",
-    "fixed-size-cache",
-    "fixedsize-map"
-  ]
+    "fixed-size cache",
+    "fixed-size map",
+    "capped map",
+    "capped cache",
+    "size-limited map"
+  ],
+  "devDependencies": {
+    "fast-check": "^3.10.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
 }
